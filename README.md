@@ -32,7 +32,7 @@ Um agente especialista que utiliza IA e busca do Google para encontrar as tecnol
    - Crie um arquivo `.env.local` na raiz do projeto
    - Adicione sua chave da API do Gemini:
      ```
-     GEMINI_API_KEY=sua_chave_aqui
+     VITE_GEMINI_API_KEY=sua_chave_aqui
      ```
    - Obtenha sua chave em: https://aistudio.google.com/apikey
 
@@ -53,7 +53,7 @@ Um agente especialista que utiliza IA e busca do Google para encontrar as tecnol
 4. Conecte seu repositório GitHub
 5. Configure as variáveis de ambiente:
    - Vá em "Site settings" → "Environment variables"
-   - Adicione: `GEMINI_API_KEY` com sua chave da API
+   - Adicione: `VITE_GEMINI_API_KEY` com sua chave da API
 6. Clique em "Deploy site"
 
 ### Opção 2: Deploy via CLI
@@ -69,7 +69,7 @@ netlify login
 netlify deploy --prod
 ```
 
-**Importante:** Não esqueça de adicionar a variável de ambiente `GEMINI_API_KEY` nas configurações do Netlify!
+**Importante:** Não esqueça de adicionar a variável de ambiente `VITE_GEMINI_API_KEY` nas configurações do Netlify!
 
 ## Build para Produção
 

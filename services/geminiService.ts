@@ -8,11 +8,13 @@ const CATEGORY_TITLES = [
 ];
 
 export const fetchTechSolutions = async (sector: string): Promise<SearchResult> => {
-  if (!process.env.GEMINI_API_KEY) {
-    throw new Error("API key not found. Please set the GEMINI_API_KEY environment variable.");
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("API key not found. Please set the VITE_GEMINI_API_KEY environment variable.");
   }
-  
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
+
+  const ai = new GoogleGenAI({ apiKey });
   
   const prompt = `
     Você é um agente especialista em soluções tecnológicas. Sua missão é analisar um setor da economia e identificar as tecnologias mais avançadas para ele, com base em uma ampla pesquisa global.
