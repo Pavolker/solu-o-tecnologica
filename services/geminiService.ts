@@ -9,17 +9,11 @@ const CATEGORY_TITLES = [
 
 export const fetchTechSolutions = async (sector: string): Promise<SearchResult> => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
-  console.log('Environment check:', {
-    hasApiKey: !!apiKey,
-    apiKeyLength: apiKey?.length || 0,
-    mode: import.meta.env.MODE
-  });
-
+  
   if (!apiKey) {
     throw new Error("API key not found. Please set the VITE_GEMINI_API_KEY environment variable.");
   }
-
+  
   const ai = new GoogleGenAI({ apiKey });
   
   const prompt = `
@@ -56,7 +50,7 @@ export const fetchTechSolutions = async (sector: string): Promise<SearchResult> 
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite-preview-06-17",
+      model: "gemini-2.5-flash",
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],
